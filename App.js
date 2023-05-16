@@ -83,6 +83,7 @@ export default class App extends React.Component {
         })
         .catch(error => {
           console.log(error);
+          
         });
     } else {
       alert('Requires cameral roll permission');
@@ -97,11 +98,13 @@ export default class App extends React.Component {
       () => {
         if (this.state.isImageFocused) {
           Animated.spring(this.state.scale, {
-            toValue: 0.9
+            toValue: 0.9,
+            useNativeDriver: false
           }).start();
         } else {
           Animated.spring(this.state.scale, {
-            toValue: 1
+            toValue: 1,
+            useNativeDriver: false
           }).start();
         }
       }
